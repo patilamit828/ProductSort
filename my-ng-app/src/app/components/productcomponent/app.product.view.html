@@ -4,10 +4,10 @@
     <tr>
       <td>
         <div class="container">
-           <div class="form-group">
+           <!-- <div class="form-group">
               <label>Product Row Id</label>
               <input type="text" class="form-control" [(ngModel)]="product.ProductRowId">
-           </div>
+           </div> -->
            <div class="form-group">
             <label>Product  Id</label>
             <input type="text" class="form-control" [(ngModel)]="product.ProductId">
@@ -69,10 +69,15 @@
               </tbody>
           </table> -->
           <h2>The Table that is generated dynamically with headers and rows</h2>
+          <div style="text-align: right; margin: 5px%">
+            <input type="button" style=" margin: 2%" value="Sort" class="btn btn-warning" (click)="sort()">
+            <input type="button"  value="Reverse" class="btn btn-warning" (click)="reverse()">
+          </div>
           <table class="table table-bordered table-striped table-danger">
               <thead>
                 <tr>
                   <th *ngFor="let header of columnHeaders">{{header}}</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,6 +85,7 @@
                     <td *ngFor="let header of columnHeaders">
                        {{prd[header]}}
                     </td>
+                    <td><input type="button" value="Delete" (click)= "deleteRow(prd)" class="btn btn-danger"></td>
                 </tr>
               </tbody>
           </table>
